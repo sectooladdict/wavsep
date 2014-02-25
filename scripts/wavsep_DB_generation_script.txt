@@ -1,0 +1,60 @@
+drop database if exists authority;
+
+create database authority;
+
+use authority; 
+
+drop table if exists users;
+
+drop table if exists accounts;
+drop table if exists messages;
+drop table if exists transactions;
+create table users (userid int, PRIMARY KEY(userid), username varchar(25) NOT NULL, password varchar(25) NOT NULL, privilege int);
+INSERT INTO authority.users(userid ,username, password, privilege) VALUES(1,'user1','password',1);
+
+INSERT INTO authority.users(userid ,username, password, privilege) VALUES(2,'david','goodboy',1);
+
+INSERT INTO authority.users(userid ,username, password, privilege) VALUES(3,'admin','mastermold',5);
+
+INSERT INTO authority.users(userid ,username, password, privilege) VALUES(4,'user4','password4',1);
+
+INSERT INTO authority.users(userid ,username, password, privilege) VALUES(5,'user5','password5',2);
+
+INSERT INTO authority.users(userid ,username, password, privilege) VALUES(6,'user6','password6',1);
+
+INSERT INTO authority.users(userid ,username, password, privilege) VALUES(7,'user7','password7',1);
+
+create table accounts (userid int ,account int NOT NULL, PRIMARY KEY(userid));
+INSERT INTO authority.accounts(userid, account) VALUES(1,10000);
+
+INSERT INTO authority.accounts(userid, account) VALUES(2,12000);
+
+INSERT INTO authority.accounts(userid, account) VALUES(3,30000);
+
+INSERT INTO authority.accounts(userid, account) VALUES(4,40000);
+
+INSERT INTO authority.accounts(userid, account) VALUES(5,50000);
+
+INSERT INTO authority.accounts(userid, account) VALUES(6,60000);
+
+INSERT INTO authority.accounts(userid, account) VALUES(7,70000);
+create table messages (msgid int ,title varchar(50) NOT NULL, message varchar(50) NOT NULL, PRIMARY KEY(msgid));
+INSERT INTO authority.messages (msgid, title, message) VALUES(1,'Welcome to the web site','Enjoy yourself');
+INSERT INTO authority.messages (msgid, title, message) VALUES(2,'Remember to change your password','Invest in your security!');
+INSERT INTO authority.messages (msgid, title, message) VALUES(3,'Your account is about to expire','Please renew it in the next two weeks');
+create table transactions(userid int, transactionId int NOT NULL, sum int NOT NULL, description varchar(50) NOT NULL, transactionDate DATE NOT NULL, PRIMARY KEY(userid));
+INSERT INTO authority.transactions(userid, transactionId, sum, description, transactionDate) VALUES(1,132,1000,'Simple Transaction','2010-01-01');
+
+INSERT INTO authority.transactions(userid, transactionId, sum, description, transactionDate) VALUES(2,133,1200,'Simple Transaction','2010-01-01');
+
+INSERT INTO authority.transactions(userid, transactionId, sum, description, transactionDate) VALUES(3,135,3000,'Simple Transaction','2010-01-01');
+
+INSERT INTO authority.transactions(userid, transactionId, sum, description, transactionDate) VALUES(4,223,4000,'Simple Transaction','2010-01-01');
+
+INSERT INTO authority.transactions(userid, transactionId, sum, description, transactionDate) VALUES(5,423,5000,'Simple Transaction','2010-01-01');
+
+INSERT INTO authority.transactions(userid, transactionId, sum, description, transactionDate) VALUES(6,456,6000,'Simple Transaction','2010-01-01');
+
+INSERT INTO authority.transactions(userid, transactionId, sum, description, transactionDate) VALUES(7,789,7012,'Expensive Transaction','2010-01-01');
+INSERT INTO authority.transactions(userid, transactionId, sum, description, transactionDate) VALUES(8,895,8000,'Expensive Transaction','2010-02-02');
+

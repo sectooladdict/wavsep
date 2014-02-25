@@ -1,0 +1,107 @@
+===============
+= version 1.2 =
+===============
+(*) Added 816 Path Traversal / Local File Inclusion test cases.
+(*) Added 8 categories of false positive Path Traversal / Local File Inclusion test cases.
+(*) Added 108 Remote File Inclusion test cases.
+(*) Added 6 categories of false positive Remote File Inclusion test cases.
+(*) Replicated 408 Path Traversal test cases to "active-form-action-version" directory,
+    and altered them to include the action property in forms.
+(*) Created a platform for easily implementing test cases for 4+ additional vulnerabilities
+    (Open Redirect, Insecure Forward/File Enumeration, Code LFI, Code RFI, etc) - 
+    will be implemented in future versions of wavsep (now implemented as false lfi/rfi test cases). 
+(*) Fixed a few minor spelling issues.
+(*) Updated the main index page and several other index pages.
+(*) Added documentation on the admin/root permissions required to run wavsep 
+    (the tomcat user should be granted permissions on the /db/ folder under tomcat/eclipse root,
+     or root/admin privileges - recommended for better coverage of lfi/rfi test cases).  
+
+=================
+= version 1.1.1 =
+=================
+(*) Issue 2 - Changed the encoding of all jsp pages from "windows-1255" to "ISO-8859-1"
+    (might cause an OS specific bug)
+(*) Issue 4 - Changed the numbering convention of single digit cases from [digit] to [zero][digit]
+    in order to make counting results easier (Case1->Case01...Case9->Case09).
+(*) Moved all the active test cases into the "active" directory and changed various 
+    index pages and references inside test cases accordingly.
+(*) Removed unnecessary comments from various locations.
+
+=================
+= version 1.1.0 =
+=================
+(*) Using derby 10.8.2.2 to store mysql configuration (+ alternative DB)
+(*) Built using eclipse helios SR2 win32 (using indigo caused some build exceptions)
+(*) Added mysql database installer (/wavsep-install/install.jsp)
+(*) Fixed various documentation flaws.
+(*) Started to use action-less form tags in new test cases (no change for legacy) - less to maintain (10x to the zap-wave project).   
+(*) All the in-directory index pages were updated to generate it for GET/POST.
+(*) Converted zap-wave test cases into wavsep/mysql format, released under GPL 3.0 
+    (GPL 3.0 is compatible with ASF 2.0 according to http://en.wikipedia.org/wiki/Apache_License)
+ 
+    The entire /passive/ zap-wave directory was left nearly intact, except titles, license and minor changes:
+    session-password-autocomplete.jsp, weak-authentication-basic.jsp, 
+    
+    The test cases in the /active/ zap-wave directory had undergone some changes: 
+    xss-url-basic.jsp -> equivalent to the test case Case1-Tag2HtmlPageScope.jsp (RXSS-GET)
+    xss-form-basic.jsp -> equivalent to the test case Case1-Tag2HtmlPageScope.jsp (RXSS-POST)
+    xss-url-strip-script.jsp -> updated & converted to Case1-Tag2HtmlPageScope-StripScriptTag.jsp (RXSS-GET-Experimental)
+    xss-form-strip-script.jsp -> updated & converted to Case1-Tag2HtmlPageScope-StripScriptTag.jsp (RXSS-POST-Experimental)
+    xss-basic-cookie.jsp -> converted & altered to Case1-Tag2HtmlPageScope.jsp under RXSS-COOKIE-Experimental
+    	(format changed: cookie generated in index page or the page itself, not directly from input in the current page,
+    	 might require configuration changes to work)
+    xss-form-url.jsp -> converted, altered & duplicated into the following test cases:
+      Case2-Tag2HtmlPageScope-SecretVectorPOST.jsp (RXSS-GET-Experimental)
+      Case2-Tag2HtmlPageScope-SecretVectorGET.jsp (RXSS-POST-Experimental)
+      //partially equivalent to the test case Case1-Tag2HtmlPageScope.jsp,
+      //but is only vulnerable in a secret input vector, which I did not cover properly
+    xss-form-anti-csrf.jsp -> converted, altered & duplicated into the following test cases:
+      Case3-Tag2HtmlPageScope-ConstantAntiCSRFToken.jsp (GET & POST test cases)
+      Case4-Tag2HtmlPageScope-ChangingAntiCSRFToken.jsp (GET & POST test cases)
+      //Although this case is similar to case32, the anticsrf token here is truly random
+      //so it was added as another test case. 
+      //Two versions of the token were implemented (in 4 test cases): 
+      //(1)The first token value is generated randomly but then remains unchanged,  
+      // so that it won't affect all scans. All of wavsep index pages were updated to support it. 
+      //(2)The second token value is generated randomly in each access to the page.
+        
+    inject-sql-url-basic.jsp -> converted to the experimental sqli GET test case
+    	Case1-InjectionInInsertValues-String-BinaryDeliberateRuntimeError-With200Errors.jsp
+    inject-sql-form-basic.jsp  -> converted to the experimental sqli POST test case
+    	Case1-InjectionInInsertValues-String-BinaryDeliberateRuntimeError-With200Errors.jsp
+    		
+       //Explanation: I have been avoiding the implementation of insert/delete statement
+       //Since I didn't want to overflow the database, but connection temporary tables
+       //solved this issue. Detection might be identical for most cases, but verification 
+       //and exploitation will only be identical using deliberate runtime errors. 
+
+=================
+= version 1.0.3 =
+=================
+(*) Root problem solved.
+
+=================
+= version 1.0.2 =
+=================
+(*) Database connection methods are now implemented in
+	a single class, to make future development easier.
+(*) Implemented the usage of a database connection pool (DBCP 1.4),
+    to enhance WAVSEP's ability to handle stress, and thus, 
+    help scanners to avoid inconsistent results.
+    As of this version, WAVSEP requires JDK 1.6 (run/compile),
+    since DBCP 1.4 runs on JDK 1.6 only (JDBC 4).
+(*) Implemented console error reporting in the case of DB connection failures. 
+
+=================
+= version 1.0.1 =
+=================
+-- Minor Changes --
+(*) Replaced the VBScript function "MsgBox" with "Document.Write" in 
+    test cases 13,14,15,20,21,25,26 and 29 (16 cases total)
+    of RXSS-GET & RXSS-POST to avoid the VBScript pop up bug
+    in Netsparker (or scanners with similar repeating VBScript pop-up issues).  
+
+=================
+= version 1.0.1 =
+=================
+(*) Initial Release

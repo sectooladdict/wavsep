@@ -1,0 +1,2 @@
+CREATE USER 'wavsep'@'localhost' IDENTIFIED BY 'wavsepPass782';
+GRANT ALL PRIVILEGES ON authority.* to wavsep@localhost ;

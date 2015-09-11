@@ -14,13 +14,13 @@ This evaluation platform contains a collection of unique vulnerable web pages th
 docker-compose up
 ```
 
-After a couple of seconds WAVSEP will be running at [http://127.0.0.1:8098/wavsep/](http://127.0.0.1:8098/wavsep/)
+After a couple of seconds the database will be setup and WAVSEP will be running at [http://127.0.0.1:8098/wavsep/](http://127.0.0.1:8098/wavsep/)
 
 ## References
  * [WAVSEP Home Page](https://code.google.com/p/wavsep/)
  * [WAVSEP Builds](https://sourceforge.net/projects/wavsep/)
 
-## Previous benchmarks performed using the platform
+## Benchmarks performed using WAVSEP
  * [SecToolMarket - A Dynamic Security Benchmark Presentation Platform](http://www.sectoolmarket.com)
  * [The 2013/2014 comparison of 12 crucial aspects of 63 commercial, SaaS and open source scanners](http://sectooladdict.blogspot.com/2014/02/wavsep-web-application-scanner.html)
  * [The 2012 comparison of 10 crucial aspects of 60 commercial & open source scanners](http://sectooladdict.blogspot.com/2012/07/2012-web-application-scanner-benchmark.html)

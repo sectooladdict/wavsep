@@ -18,7 +18,14 @@ RUN rm -rf "wavsep/WebContent/WEB-INF - Copy"
 RUN rm -rf "wavsep/WebContent/Copy of WEB-INF"
 RUN rm -rf "wavsep/WebContent/WEB-INF (copy)"
 
-
 # Copy WAVSEP to Tomcat's directory
 WORKDIR /usr/local/tomcat/webapps/
 RUN cp -rf /tmp/wavsep/WebContent/ wavsep
+
+# We need these tools to configure WAVSEP
+RUN apt-get update
+RUN apt-get install -y curl netcat mysql-client
+
+# Configure MySQL and run Tomcat
+ADD docker/run.sh /usr/local/tomcat/bin/wavsep.sh
+CMD ["/usr/local/tomcat/bin/wavsep.sh"]

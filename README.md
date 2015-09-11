@@ -16,7 +16,7 @@ This evaluation platform contains a collection of unique vulnerable web pages th
  * [The 2012 comparison of 10 crucial aspects of 60 commercial & open source scanners](http://sectooladdict.blogspot.com/2012/07/2012-web-application-scanner-benchmark.html)
  * [The 2011 comparison of 60 commercial & open source scanners](http://sectooladdict.blogspot.com/2011/08/commercial-web-application-scanner.html)
  * [The 2010 comparison of 42 open source scanners](http://sectooladdict.blogspot.com/2010/12/web-application-scanner-benchmark.html)
- * []()
+
 
 ## Copyright
 
@@ -35,5 +35,5 @@ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
 FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License along with
-this program. If not, see [http://www.gnu.org/licenses](http://www.gnu.org/licenses/)
+this program. If not, see http://www.gnu.org/licenses/
 ```

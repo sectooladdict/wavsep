@@ -28,5 +28,11 @@
 <br><b>DomXSS GET Input Vector - Experimental Test Cases</b><br>
 <a href="DOM-XSS/DXSS-Detection-Evaluation-GET-Experimental/index.jsp">Evaluation of RXSS Detection Accuracy - GET</a><br><br>
 
+<br><b>ReflectedXSS GET Input Vector - New Contexts Test Cases</b><br>
+<a href="Reflected-XSS/RXSS-New-Contexts-GET/index.jsp">Evaluation of RXSS Detection Accuracy - GET</a><br><br>
+
+<br><b>ReflectedXSS POST Input Vector - New Contexts Test Cases</b><br>
+<a href="Reflected-XSS/RXSS-New-Contexts-POST/index.jsp">Evaluation of RXSS Detection Accuracy - GET</a><br><br>
+
 </body>
 </html>

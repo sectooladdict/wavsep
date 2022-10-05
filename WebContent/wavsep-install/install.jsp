@@ -167,7 +167,7 @@ if (request.getParameter("username") == null
 	    	
 		    String rootConnectionString =
         	    "jdbc:mysql://" + host + ":" + port +
-        	    "/information_schema?user=" + username + "&password=" + password;
+        	    "/mysql?characterEncoding=utf8&user=" + username + "&password=" + password;
 		
 		    /* Load the MySQL driver */
 	        String driver = DatabaseConstants.DATABASE_DRIVER;
@@ -209,7 +209,7 @@ if (request.getParameter("username") == null
 		 	rootConnectionString =
         	    "jdbc:mysql://" + host + ":" + port +
         	    "/" + wavsepDB + 
-        	    "?user=" + username + "&password=" + password;
+        	    "?characterEncoding=utf8&user=" + username + "&password=" + password;
 		
 		 	/* Load the MySQL driver */
 	        driver = DatabaseConstants.DATABASE_DRIVER;
